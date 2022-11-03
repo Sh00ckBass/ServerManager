@@ -1,0 +1,5 @@
+name: ServerManager
+version: '${project.version}'
+main: de.sh00ckbass.minecraft.servermanager.ServerManager
+api-version: 1.19
+authors: [ Sh00ckBass ]
