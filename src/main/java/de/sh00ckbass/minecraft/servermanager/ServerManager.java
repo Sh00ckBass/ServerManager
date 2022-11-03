@@ -1,5 +1,8 @@
 package de.sh00ckbass.minecraft.servermanager;
 
+import de.sh00ckbass.minecraft.servermanager.config.ConfigLoader;
+import de.sh00ckbass.minecraft.servermanager.config.Configs;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /*******************************************************
@@ -13,12 +16,20 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public final class ServerManager extends JavaPlugin {
 
+    @Getter
+    private final Configs configs = new Configs();
+
+    private ConfigLoader configLoader;
+
     @Override
     public void onEnable() {
+        this.configLoader = new ConfigLoader(this);
+        this.configLoader.loadConfigs();
     }
 
     @Override
     public void onDisable() {
+        this.configLoader.saveConfigs();
     }
 
 }
