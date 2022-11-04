@@ -58,9 +58,11 @@ public class ConfigLoader {
 
         final boolean pvp = config.getBoolean("pvp");
         final boolean deathMessages = config.getBoolean("death-messages");
+        final boolean globalDeathMessages = config.getBoolean("global-death-messages");
 
         settingsConfig.setPvp(pvp);
         settingsConfig.setDeathMessages(deathMessages);
+        settingsConfig.setGlobalDeathMessages(globalDeathMessages);
     }
 
     private void saveWorldSettingsConfig() throws IOException {
@@ -70,9 +72,11 @@ public class ConfigLoader {
 
         final boolean pvp = settingsConfig.isPvp();
         final boolean deathMessages = settingsConfig.isDeathMessages();
+        final boolean globalDeathMessages = settingsConfig.isGlobalDeathMessages();
 
         config.set("pvp", pvp);
         config.set("death-messages", deathMessages);
+        config.set("global-death-messages", globalDeathMessages);
 
         config.save(worldSettingsConfig);
     }

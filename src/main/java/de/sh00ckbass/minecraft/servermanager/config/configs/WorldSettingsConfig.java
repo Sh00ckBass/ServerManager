@@ -19,5 +19,6 @@ public class WorldSettingsConfig {
 
     private boolean pvp = true;
     private boolean deathMessages = true;
+    private boolean globalDeathMessages = false;
 
 }
