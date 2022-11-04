@@ -1,5 +1,6 @@
 package de.sh00ckbass.minecraft.servermanager.listener;
 
+import de.sh00ckbass.minecraft.servermanager.ServerManager;
 import org.bukkit.event.Listener;
 
 /*******************************************************
@@ -12,4 +13,10 @@ import org.bukkit.event.Listener;
  *
  */
 public class ServerListener implements Listener {
+
+    private final ServerManager plugin;
+
+    public ServerListener(final ServerManager plugin) {
+        this.plugin = plugin;
+    }
 }
