@@ -1,8 +1,10 @@
 package de.sh00ckbass.minecraft.servermanager;
 
+import co.aikar.commands.PaperCommandManager;
 import de.sh00ckbass.minecraft.servermanager.config.ConfigLoader;
 import de.sh00ckbass.minecraft.servermanager.config.Configs;
 import lombok.Getter;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /*******************************************************
@@ -25,6 +27,16 @@ public final class ServerManager extends JavaPlugin {
     public void onEnable() {
         this.configLoader = new ConfigLoader(this);
         this.configLoader.loadConfigs();
+        this.registerCommands();
+        this.registerListener();
+    }
+
+    private void registerCommands() {
+        final PaperCommandManager commandManager = new PaperCommandManager(this);
+    }
+
+    private void registerListener() {
+        final PluginManager pluginManager = this.getServer().getPluginManager();
     }
 
     @Override
